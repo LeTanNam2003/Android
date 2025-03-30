@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:background="#F8F8FF">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thông Tin Sinh Viên"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#3F51B5"
+        android:padding="10dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <!-- Ô nhập Họ tên -->
+    <EditText
+        android:id="@+id/edtHoTen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Họ và tên"
+        android:padding="10dp"
+        android:background="@android:drawable/edit_text"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Ô nhập MSSV -->
+    <EditText
+        android:id="@+id/edtMSSV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="MSSV"
+        android:padding="10dp"
+        android:background="@android:drawable/edit_text"
+        app:layout_constraintTop_toBottomOf="@id/edtHoTen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Ô nhập Lớp -->
+    <EditText
+        android:id="@+id/edtLop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Lớp"
+        android:padding="10dp"
+        android:background="@android:drawable/edit_text"
+        app:layout_constraintTop_toBottomOf="@id/edtMSSV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- TextView: Sinh viên năm -->
+    <TextView
+        android:id="@+id/txtNam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sinh viên năm:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/edtLop"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Nhóm nút chọn năm học -->
+    <RadioGroup
+        android:id="@+id/groupNamHoc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/txtNam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp">
+
+        <RadioButton android:id="@+id/rbNam1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" />
+        <RadioButton android:id="@+id/rbNam2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2" />
+        <RadioButton android:id="@+id/rbNam3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3" />
+        <RadioButton android:id="@+id/rbNam4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4" />
+    </RadioGroup>
+
+    <!-- TextView: Chuyên ngành -->
+    <TextView
+        android:id="@+id/txtChuyenNganh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chuyên ngành:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/groupNamHoc"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Nhóm nút chọn chuyên ngành -->
+    <RadioGroup
+        android:id="@+id/groupChuyenNganh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/txtChuyenNganh"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp">
+
+        <RadioButton android:id="@+id/rbNhu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hệ thống nhúng" />
+        <RadioButton android:id="@+id/rbVienThong" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Viễn thông - Mạng" />
+        <RadioButton android:id="@+id/rbDienTu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Điện tử" />
+    </RadioGroup>
+
+    <!-- Button CALL -->
+    <Button
+        android:id="@+id/btnCall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="CALL"
+        android:textStyle="bold"
+        android:backgroundTint="#673AB7"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/groupChuyenNganh"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Button SMS -->
+    <Button
+        android:id="@+id/btnSMS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="SMS"
+        android:textStyle="bold"
+        android:backgroundTint="#673AB7"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/groupChuyenNganh"
+        app:layout_constraintStart_toEndOf="@id/btnCall"
+        app:layout_constraintEnd_toStartOf="@id/btnCapture"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Button CAPTURE -->
+    <Button
+        android:id="@+id/btnCapture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="CAPTURE"
+        android:textStyle="bold"
+        android:backgroundTint="#673AB7"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/groupChuyenNganh"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Button THU THẬP THÔNG TIN -->
+    <Button
+        android:id="@+id/btnCollectInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="THU THẬP THÔNG TIN SINH VIÊN"
+        android:textStyle="bold"
+        android:backgroundTint="#FF5722"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
