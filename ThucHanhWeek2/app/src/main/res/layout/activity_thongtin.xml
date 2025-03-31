@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".thongtin"
+    android:background="#F8F8FF">
+
+    <!-- Tiêu đề -->
+
+    <!-- Hiển thị Họ và Tên -->
+
+    <TextView
+        android:id="@+id/titleThongTin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#3F51B5"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Thông Tin Sinh Viên"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtHoTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Họ và tên: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/titleThongTin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvHoTen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="(Dữ liệu hiển thị ở đây)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/titleThongTin"
+        app:layout_constraintStart_toEndOf="@id/txtHoTen"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Hiển thị MSSV -->
+    <TextView
+        android:id="@+id/txtMSSV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MSSV: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvHoTen"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvMSSV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="(Dữ liệu hiển thị ở đây)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvHoTen"
+        app:layout_constraintStart_toEndOf="@id/txtMSSV"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Hiển thị Lớp -->
+    <TextView
+        android:id="@+id/txtLop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lớp: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvMSSV"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvLop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="(Dữ liệu hiển thị ở đây)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvMSSV"
+        app:layout_constraintStart_toEndOf="@id/txtLop"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Hiển thị Sinh viên năm -->
+    <TextView
+        android:id="@+id/txtNamHoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sinh viên năm: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvLop"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvNamHoc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="(Dữ liệu hiển thị ở đây)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvLop"
+        app:layout_constraintStart_toEndOf="@id/txtNamHoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+    <!-- Hiển thị Chuyên ngành -->
+    <TextView
+        android:id="@+id/txtChuyenNganh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chuyên ngành: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvNamHoc"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvChuyenNganh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="(Dữ liệu hiển thị ở đây)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvNamHoc"
+        app:layout_constraintStart_toEndOf="@id/txtChuyenNganh"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Nút quay lại -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#FF5722"
+        android:text="QUAY LẠI"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
