@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FBEEC1"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_clock" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ APP"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#00AA55"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Take Quiz Button -->
+    <Button
+        android:id="@+id/btnTakeQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Take Quiz"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#00AA55"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"
+        android:padding="12dp" />
+
+    <!-- Social Login Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <!-- Facebook -->
+        <Button
+            android:id="@+id/btnFacebook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="f Login"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#3b5998"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Google -->
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="g+ Login"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#dd4b39" />
+    </LinearLayout>
+
+</LinearLayout>
