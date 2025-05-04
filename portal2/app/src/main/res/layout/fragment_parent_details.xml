@@ -5,8 +5,8 @@
     android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.parent.ParentDetailsFragment">
-
+    tools:context=".presentation.ui.parent.ParentDetailsFragment"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,8 +20,10 @@
             android:layout_centerHorizontal="true"
             android:text="PARENT DETAILS"
             android:textSize="20sp"
-            android:textStyle="bold|italic" />
-        <!--PROGRESS.._________________________________  -->
+            android:textStyle="bold|italic"
+            android:contentDescription="Parent Details Header" />
+
+        <!-- Loading Layout -->
         <LinearLayout
             android:id="@+id/loadingLinearLayout"
             android:layout_width="match_parent"
@@ -35,7 +37,8 @@
             <ProgressBar
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:contentDescription="Loading Progress Indicator" />
 
             <TextView
                 android:id="@+id/loadTxtView"
@@ -43,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="loading...." />
+                android:text="loading...."
+                android:contentDescription="Loading..." />
         </LinearLayout>
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -66,7 +69,8 @@
                     android:id="@+id/imageView"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@mipmap/place_holder" />
+                    android:src="@mipmap/place_holder"
+                    android:contentDescription="Parent Image" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -79,20 +83,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="PARENT NAME"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:contentDescription="Parent Name" />
 
                     <TextView
                         android:id="@+id/contactTxtView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="contact"
-                        android:textStyle="italic" />
+                        android:textStyle="italic"
+                        android:contentDescription="Parent Contact Info" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                        <!-- First Name -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -108,10 +115,11 @@
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="First Name: " />
-
+                                android:text="First Name"
+                                android:contentDescription="First Name Value" />
                         </LinearLayout>
 
+                        <!-- Last Name -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -128,10 +136,11 @@
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Last Name: " />
-
+                                android:text="Last Name"
+                                android:contentDescription="Last Name Value" />
                         </LinearLayout>
 
+                        <!-- City -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -147,10 +156,11 @@
                                 android:id="@+id/cityTxtView"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp" />
-
+                                android:layout_marginLeft="10dp"
+                                android:contentDescription="City Value" />
                         </LinearLayout>
 
+                        <!-- Job Status -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -166,10 +176,11 @@
                                 android:id="@+id/jobStatusTxtView"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp" />
-
+                                android:layout_marginLeft="10dp"
+                                android:contentDescription="Job Status Value" />
                         </LinearLayout>
 
+                        <!-- Age -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -186,10 +197,11 @@
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text=" " />
-
+                                android:text=" "
+                                android:contentDescription="Age Value" />
                         </LinearLayout>
 
+                        <!-- Gender -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -206,10 +218,11 @@
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text=" " />
-
+                                android:text=" "
+                                android:contentDescription="Gender Value" />
                         </LinearLayout>
 
+                        <!-- Job Type -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -225,10 +238,11 @@
                                 android:id="@+id/jobTypeTxtView"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp" />
-
+                                android:layout_marginLeft="10dp"
+                                android:contentDescription="Job Type Value" />
                         </LinearLayout>
 
+                        <!-- Delete & Edit -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -240,18 +254,20 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Delete"
-                                android:textColor="@color/colorAccent" />
+                                android:textColor="@color/colorAccent"
+                                android:contentDescription="Delete Parent" />
 
                             <TextView
                                 android:id="@+id/editTxtView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="130dp"
-                                android:text="Edit "
-                                android:textColor="@color/colorPrimary" />
-
+                                android:text="Edit"
+                                android:textColor="@color/colorPrimary"
+                                android:contentDescription="Edit Parent" />
                         </LinearLayout>
 
+                        <!-- Call & Email -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -264,7 +280,7 @@
                                 android:layout_height="50dp"
                                 android:clickable="true"
                                 android:src="@mipmap/call"
-                                android:textColor="@color/colorAccent" />
+                                android:contentDescription="Call Parent" />
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/emailImageView"
@@ -273,24 +289,17 @@
                                 android:layout_marginLeft="130dp"
                                 android:clickable="true"
                                 android:src="@mipmap/email"
-
-                                android:textColor="@color/colorPrimary" />
+                                android:contentDescription="Email Parent" />
                         </LinearLayout>
-
 
                     </LinearLayout>
 
-
                 </LinearLayout>
-
 
             </LinearLayout>
 
-
         </androidx.cardview.widget.CardView>
 
-
     </RelativeLayout>
-
 
 </LinearLayout>

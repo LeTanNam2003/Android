@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer"
-    tools:context=".presentation.ui.results.ResultsEditFragment">
-
+    tools:context=".presentation.ui.results.ResultsEditFragment"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:background="@color/colorPrimaryLight"
@@ -20,14 +19,16 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:text="Edit Result"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-        <!--PROGRESS.._________________________________  -->
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Header: Edit Result" />
+
         <LinearLayout
             android:id="@+id/loadingLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/header"
+            android:layout_below="@id/header"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp"
@@ -44,42 +45,46 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="loading...." />
+                android:text="loading...."
+                android:importantForAccessibility="yes"
+                android:contentDescription="Loading data" />
         </LinearLayout>
 
         <ScrollView
             android:id="@+id/scrollView"
-            android:background="@color/colorPrimaryDark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/header">
+            android:layout_below="@id/header"
+            android:background="@color/colorPrimaryDark">
 
             <LinearLayout
-                android:background="@drawable/button"
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-
-                android:orientation="vertical">
+                android:background="@drawable/button"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/nameTxtView"
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    android:text="Name "
+                    android:text="Name"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:importantForAccessibility="yes"
+                    android:contentDescription="Student Name" />
 
-
+                <!-- MATH -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <TextView
                         android:layout_width="100dp"
@@ -90,13 +95,18 @@
                         android:id="@+id/mathEdtTxt"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:inputType="number"
+                        android:contentDescription="Enter Math score" />
                 </LinearLayout>
 
+                <!-- SCIENCE -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <TextView
                         android:layout_width="100dp"
@@ -107,13 +117,18 @@
                         android:id="@+id/scienceEdtTxt"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:inputType="number"
+                        android:contentDescription="Enter Science score" />
                 </LinearLayout>
 
+                <!-- ENGLISH -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <TextView
                         android:layout_width="100dp"
@@ -124,13 +139,18 @@
                         android:id="@+id/englishEdtTxt"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:inputType="number"
+                        android:contentDescription="Enter English score" />
                 </LinearLayout>
 
+                <!-- KISWAHILI -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <TextView
                         android:layout_width="100dp"
@@ -141,13 +161,18 @@
                         android:id="@+id/kiswahiliEdtTxt"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:inputType="number"
+                        android:contentDescription="Enter Kiswahili score" />
                 </LinearLayout>
 
+                <!-- SST/CRE -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <TextView
                         android:layout_width="100dp"
@@ -158,24 +183,25 @@
                         android:id="@+id/sst_creEdtTxt"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:inputType="number"
+                        android:contentDescription="Enter SST/CRE score" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/submitBtn"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
+                    android:minHeight="48dp"
+                    android:minWidth="200dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/button_first"
                     android:text="Submit"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:contentDescription="Submit scores button" />
             </LinearLayout>
-
         </ScrollView>
-
     </RelativeLayout>
-
-
-
 </LinearLayout>

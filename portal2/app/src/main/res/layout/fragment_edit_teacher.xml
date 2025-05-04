@@ -4,17 +4,18 @@
     android:id="@+id/drawer"
     tools:context=".presentation.ui.teacher.EditTeacherFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <!--PROGRESS.._________________________________  -->
+
         <LinearLayout
             android:id="@+id/loadingLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/header"
+
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp"
@@ -34,9 +35,8 @@
                 android:text="loading...." />
         </LinearLayout>
 
-
         <ScrollView
-          android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimaryDark"
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -44,8 +44,7 @@
             <RelativeLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:background="@color/colorPrimaryDark"
@@ -72,7 +71,6 @@
                             android:text="Edit Teacher"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -83,183 +81,179 @@
                         android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
+                        <!-- First Name -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="First Name" />
-
                             <EditText
                                 android:id="@+id/firstNameEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="48dp"
+                                android:hint="Enter first name"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
-
+                        <!-- Last Name -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Last Name" />
-
                             <EditText
                                 android:id="@+id/lastNameEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="48dp"
+                                android:hint="Enter last name"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
+                        <!-- Email -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Email" />
-
                             <EditText
                                 android:id="@+id/emailEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="48dp"
+                                android:hint="Enter email"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
+
+                        <!-- Type -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Gender" />
-
                             <RadioGroup
                                 android:id="@+id/typeRadioGroup"
                                 android:layout_width="250dp"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
-
                                 <RadioButton
                                     android:id="@+id/teacherRadioBtn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:checked="true"
                                     android:text="Teacher" />
-
                                 <RadioButton
                                     android:id="@+id/adminRadioBtn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Admin" />
-
                             </RadioGroup>
                         </LinearLayout>
+
+                        <!-- Salary -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Salary" />
-
                             <EditText
                                 android:id="@+id/salaryEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:inputType="number" />
+                                android:layout_height="48dp"
+                                android:inputType="number"
+                                android:hint="Enter salary"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
-
+                        <!-- City -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="City" />
-
                             <EditText
                                 android:id="@+id/cityEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="48dp"
+                                android:hint="Enter city"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
-
+                        <!-- Degree -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Degree" />
-
                             <EditText
                                 android:id="@+id/degreeEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="48dp"
+                                android:hint="Enter degree"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
-
+                        <!-- Age -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Age" />
-
                             <EditText
                                 android:id="@+id/ageEdtTxt"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:inputType="number" />
+                                android:layout_height="48dp"
+                                android:inputType="number"
+                                android:hint="Enter age"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
-
+                        <!-- Gender -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Gender" />
-
                             <RadioGroup
                                 android:id="@+id/genderRadioGroup"
                                 android:layout_width="250dp"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
-
                                 <RadioButton
                                     android:id="@+id/maleRadioBtn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Male" />
-
                                 <RadioButton
                                     android:id="@+id/femaleRadioBtn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Female" />
-
                                 <RadioButton
                                     android:id="@+id/otherRadioBtn"
                                     android:layout_width="wrap_content"
@@ -268,45 +262,44 @@
                             </RadioGroup>
                         </LinearLayout>
 
+                        <!-- Subject -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Subject" />
-
                             <Spinner
                                 android:id="@+id/subjectSpinner"
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="48dp" />
                         </LinearLayout>
 
+                        <!-- Contact -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="Contact" />
-
                             <EditText
                                 android:id="@+id/contactEdtTxt"
                                 android:layout_width="200dp"
+                                android:layout_height="48dp"
                                 android:hint="07..."
-                                android:layout_height="wrap_content"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:importantForAccessibility="yes" />
                         </LinearLayout>
 
+                        <!-- Buttons -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <Button
                                 android:id="@+id/addPhotoBtn"
                                 android:layout_width="100dp"
@@ -314,7 +307,6 @@
                                 android:background="@drawable/button_first"
                                 android:text="Photo"
                                 android:textAllCaps="false" />
-
                             <Button
                                 android:id="@+id/submitBtn"
                                 android:layout_width="100dp"
@@ -329,5 +321,4 @@
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>
-
 </LinearLayout>
