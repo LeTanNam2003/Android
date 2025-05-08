@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">register_sample</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="total_students">Tổng số học viên: 0</string>
+    <string name="total_teachers">Tổng số giáo viên: 0</string>
+    <string name="total_classes">Số lớp học: 0</string>
+    <string name="today_schedule">Lịch học hôm nay</string>
+    <string name="no_classes_today">Không có lớp nào hôm nay.</string>
+</resources>
