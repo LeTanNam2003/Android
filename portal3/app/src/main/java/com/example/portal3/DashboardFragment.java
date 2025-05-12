@@ -2,6 +2,7 @@ package com.example.portal3;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,10 +27,20 @@ public class DashboardFragment extends Fragment {
     private ListView lvTodaySchedule;
 
     private DBHelper dbHelper;
+    private final Handler handler = new Handler();
 
     public DashboardFragment() {
         // Required empty public constructor
     }
+
+    private final Runnable updateTimeRunnable = new Runnable() {
+        @Override
+        public void run() {
+            String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+            tvCurrentTime.setText("Giờ hiện tại: " + currentTime);
+            handler.postDelayed(this, 1000); // update every second
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,13 +62,15 @@ public class DashboardFragment extends Fragment {
         tvTodayDate = view.findViewById(R.id.tvTodayDate);
         tvActiveClasses = view.findViewById(R.id.tvActiveClasses);
         tvFinishedClasses = view.findViewById(R.id.tvFinishedClasses);
-        lvTodaySchedule = view.findViewById(R.id.lvTodaySchedule);  // Đảm bảo tên này trùng với XML
+        lvTodaySchedule = view.findViewById(R.id.lv_class);  // Đảm bảo tên này trùng với XML
 
         dbHelper = new DBHelper(getContext());
 
         // Cập nhật giờ hiện tại
-        String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-        tvCurrentTime.setText("Giờ hiện tại: " + currentTime);
+        handler.post(updateTimeRunnable); // start updating time
+        //String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+        //tvCurrentTime.setText("Giờ hiện tại: " + currentTime);
+        //handler.postDelayed(this, 1000);
 
         // Cập nhật lượt truy cập
         dbHelper.increaseVisitCount();

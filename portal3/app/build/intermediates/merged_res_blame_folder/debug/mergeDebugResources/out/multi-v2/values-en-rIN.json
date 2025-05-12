@@ -4,7 +4,7 @@
             "outputFile": "com.example.portal3.app-mergeDebugResources-42:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\letan\\.gradle\\caches\\8.10.2\\transforms\\171f16e860e1aa8526997ec616806c37\\transformed\\navigation-ui-2.8.9\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\VNS\\.gradle\\caches\\8.10.2\\transforms\\171f16e860e1aa8526997ec616806c37\\transformed\\navigation-ui-2.8.9\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\letan\\.gradle\\caches\\8.10.2\\transforms\\5de3ff6017b8efd506cd3a7040c21f28\\transformed\\core-1.13.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\VNS\\.gradle\\caches\\8.10.2\\transforms\\5de3ff6017b8efd506cd3a7040c21f28\\transformed\\core-1.13.0\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\letan\\.gradle\\caches\\8.10.2\\transforms\\208fd3ea254c096fe14efc139fa3db28\\transformed\\appcompat-1.7.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\VNS\\.gradle\\caches\\8.10.2\\transforms\\208fd3ea254c096fe14efc139fa3db28\\transformed\\appcompat-1.7.0\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
