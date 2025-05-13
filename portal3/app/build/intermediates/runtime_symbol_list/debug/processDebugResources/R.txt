@@ -3193,6 +3193,7 @@ int id SYM 0x7f08000b
 int id TOP_END 0x7f08000c
 int id TOP_START 0x7f08000d
 int id above 0x7f08000e
+int id absent_day 0x7f080226
 int id accelerate 0x7f08000f
 int id accessibility_action_clickable_span 0x7f080010
 int id accessibility_custom_action_0 0x7f080011
@@ -3263,6 +3264,7 @@ int id anticipate 0x7f080051
 int id arc 0x7f080052
 int id asConfigured 0x7f080053
 int id async 0x7f080054
+int id attend_day 0x7f080233
 int id auto 0x7f080055
 int id autoComplete 0x7f080056
 int id autoCompleteToEnd 0x7f080057
@@ -3281,6 +3283,10 @@ int id bounceBoth 0x7f080063
 int id bounceEnd 0x7f080064
 int id bounceStart 0x7f080065
 int id btnRegister 0x7f080218
+int id btn_feedback 0x7f080234
+int id btn_view_grades 0x7f080235
+int id button 0x7f080227
+int id button2 0x7f080228
 int id buttonPanel 0x7f080067
 int id cache_measures 0x7f080068
 int id callMeasure 0x7f080069
@@ -3364,6 +3370,8 @@ int id editTextPhone 0x7f08021b
 int id edit_query 0x7f0800b1
 int id edit_text_id 0x7f0800b2
 int id elastic 0x7f0800b3
+int id elv_class_schedule 0x7f080229
+int id elv_subject_list 0x7f080236
 int id embed 0x7f0800b4
 int id end 0x7f0800b5
 int id endToStart 0x7f0800b6
@@ -3435,7 +3443,7 @@ int id listMode 0x7f0800f8
 int id list_item 0x7f0800f9
 int id locale 0x7f0800fa
 int id ltr 0x7f0800fb
-int id lvTodaySchedule 0x7f080220
+int id lv_class 0x7f08022a
 int id m3_side_sheet 0x7f0800fc
 int id main_container 0x7f0800fe
 int id marquee 0x7f0800ff
@@ -3632,6 +3640,9 @@ int id staticLayout 0x7f0801bd
 int id staticPostLayout 0x7f0801be
 int id stop 0x7f0801bf
 int id stretch 0x7f0801c0
+int id student_email 0x7f080237
+int id student_id 0x7f080238
+int id student_name 0x7f080239
 int id submenuarrow 0x7f0801c1
 int id submit_area 0x7f0801c2
 int id supportScrollUp 0x7f0801c3
@@ -3649,6 +3660,10 @@ int id tag_transition_group 0x7f0801ce
 int id tag_unhandled_key_event_manager 0x7f0801cf
 int id tag_unhandled_key_listeners 0x7f0801d0
 int id tag_window_insets_animation_callback 0x7f0801d1
+int id teach_date 0x7f08022b
+int id teacher_email 0x7f08022c
+int id teacher_id 0x7f08022d
+int id teacher_name 0x7f08022e
 int id text 0x7f0801d2
 int id text2 0x7f0801d3
 int id textEnd 0x7f0801d4
@@ -3656,11 +3671,11 @@ int id textSpacerNoButtons 0x7f0801d5
 int id textSpacerNoTitle 0x7f0801d6
 int id textStart 0x7f0801d7
 int id textTop 0x7f0801d8
+int id textView 0x7f08022f
+int id textView2 0x7f080230
 int id text_input_end_icon 0x7f0801d9
 int id text_input_error_icon 0x7f0801da
 int id text_input_start_icon 0x7f0801db
-int id text_students 0x7f0801dc
-int id text_teachers 0x7f0801dd
 int id textinput_counter 0x7f0801de
 int id textinput_error 0x7f0801df
 int id textinput_helper_text 0x7f0801e0
@@ -3698,6 +3713,10 @@ int id tvTodayDate 0x7f080225
 int id tvTotalClasses 0x7f0801f9
 int id tvTotalStudents 0x7f0801fa
 int id tvTotalTeachers 0x7f0801fb
+int id tv_child 0x7f080231
+int id tv_course_title 0x7f08023a
+int id tv_today 0x7f080232
+int id tv_today_date 0x7f08023b
 int id unchecked 0x7f0801fc
 int id uniform 0x7f0801fd
 int id unlabeled 0x7f0801fe
@@ -3841,6 +3860,7 @@ int layout abc_tooltip 0x7f0b001b
 int layout activity_login 0x7f0b001c
 int layout activity_main 0x7f0b001d
 int layout activity_register 0x7f0b0071
+int layout child_item_clickable_text 0x7f0b0072
 int layout custom_dialog 0x7f0b001e
 int layout design_bottom_navigation_item 0x7f0b001f
 int layout design_bottom_sheet_dialog 0x7f0b0020
