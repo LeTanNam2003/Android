@@ -30,7 +30,10 @@ drawable ic_teachers
 drawable login_button_bk
 drawable login_shape_bk
 id absent_day
+id attend_day
 id btnRegister
+id btn_feedback
+id btn_view_grades
 id button
 id button2
 id cardRegister
@@ -41,6 +44,7 @@ id editTextName
 id editTextPassword
 id editTextPhone
 id elv_class_schedule
+id elv_subject_list
 id linearRegister
 id lv_class
 id main_container
@@ -50,13 +54,15 @@ id nav_host_fragment
 id nav_students
 id nav_teachers
 id nav_view
+id student_email
+id student_id
+id student_name
 id teach_date
 id teacher_email
 id teacher_id
 id teacher_name
 id textView
 id textView2
-id text_students
 id toolbar
 id tvActiveClasses
 id tvCurrentTime
@@ -70,7 +76,9 @@ id tvTotalClasses
 id tvTotalStudents
 id tvTotalTeachers
 id tv_child
+id tv_course_title
 id tv_today
+id tv_today_date
 layout activity_login
 layout activity_main
 layout activity_register

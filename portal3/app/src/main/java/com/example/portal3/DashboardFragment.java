@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class DashboardFragment extends Fragment {
 
     private TextView tvTotalStudents, tvTotalTeachers, tvTotalClasses;
@@ -68,9 +71,6 @@ public class DashboardFragment extends Fragment {
 
         // Cập nhật giờ hiện tại
         handler.post(updateTimeRunnable); // start updating time
-        //String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-        //tvCurrentTime.setText("Giờ hiện tại: " + currentTime);
-        //handler.postDelayed(this, 1000);
 
         // Cập nhật lượt truy cập
         dbHelper.increaseVisitCount();
@@ -81,21 +81,46 @@ public class DashboardFragment extends Fragment {
         String currentDate = new SimpleDateFormat("EEEE, dd/MM/yyyy", new Locale("vi", "VN")).format(new Date());
         tvTodayDate.setText(currentDate);
 
-        // Dữ liệu giả (có thể thay bằng dữ liệu thật)
-        tvTotalStudents.setText("Tổng số học viên: 120");
-        tvTotalTeachers.setText("Tổng số giáo viên: 10");
-        tvTotalClasses.setText("Số lớp học: 6");
-
-        tvActiveClasses.setText("4");
-        tvFinishedClasses.setText("2");
-
-        // Cập nhật lịch học hôm nay
+//        // Dữ liệu giả (có thể thay bằng dữ liệu thật)
+//        tvTotalStudents.setText("Tổng số học viên: 120");
+//        tvTotalTeachers.setText("Tổng số giáo viên: 10");
+//        tvTotalClasses.setText("Số lớp học: 6");
+//
+//        tvActiveClasses.setText("4");
+//        tvFinishedClasses.setText("2");
+//
+//        // Cập nhật lịch học hôm nay
+//        ArrayList<String> scheduleList = new ArrayList<>();
+//        scheduleList.add("08:00 - Tin học 10A1");
+//        scheduleList.add("10:00 - Vật lý 11B");
+//        scheduleList.add("13:30 - Hóa học 12C");
+//
+//        // Dùng adapter để hiển thị lịch học
+//        SimpleScheduleAdapter adapter = new SimpleScheduleAdapter(requireContext(), scheduleList);
+//        lvTodaySchedule.setAdapter(adapter);
+        // Đọc dữ liệu từ CSV
+        List<String[]> csvData = CSVHelper.readCSV(requireContext(), "data.csv");
+        HashMap<String, String> dataMap = new HashMap<>();
         ArrayList<String> scheduleList = new ArrayList<>();
-        scheduleList.add("08:00 - Tin học 10A1");
-        scheduleList.add("10:00 - Vật lý 11B");
-        scheduleList.add("13:30 - Hóa học 12C");
 
-        // Dùng adapter để hiển thị lịch học
+        for (String[] row : csvData) {
+            if (row.length >= 2) {
+                if (row[0].equals("schedule")) {
+                    scheduleList.add(row[1]);
+                } else {
+                    dataMap.put(row[0], row[1]);
+                }
+            }
+        }
+
+        // Cập nhật UI với dữ liệu từ CSV
+        tvTotalStudents.setText("Tổng số học viên: " + dataMap.get("students"));
+        tvTotalTeachers.setText("Tổng số giáo viên: " + dataMap.get("teachers"));
+        tvTotalClasses.setText("Số lớp học: " + dataMap.get("classes"));
+        tvActiveClasses.setText(dataMap.get("active_classes"));
+        tvFinishedClasses.setText(dataMap.get("finished_classes"));
+
+        // Cập nhật lịch học
         SimpleScheduleAdapter adapter = new SimpleScheduleAdapter(requireContext(), scheduleList);
         lvTodaySchedule.setAdapter(adapter);
     }
