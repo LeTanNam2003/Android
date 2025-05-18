@@ -1,9 +1,11 @@
 package com.example.portal3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
@@ -13,13 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 public class StudentFragment extends Fragment {
 
@@ -49,20 +49,89 @@ public class StudentFragment extends Fragment {
         TextView absentDay = view.findViewById(R.id.absent_day);
         todayDate = view.findViewById(R.id.tv_today_date);
         elvSubjects = view.findViewById(R.id.elv_subject_list);
+        Button btnLogout = view.findViewById(R.id.btn_logout);
 
         String currentDate = new SimpleDateFormat("EEEE, dd/MM/yyyy", new Locale("vi", "VN")).format(new Date());
         todayDate.setText(currentDate);
 
-        // Gán dữ liệu mẫu
-        studentName.setText("SINH VIÊN: Nguyễn Văn A");
-        studentId.setText("MSSV: SV123456");
-        studentEmail.setText("Email: nguyenvana@email.com");
-        attendDay.setText("Số buổi học: 45");
-        absentDay.setText("Số buổi vắng: 2");
+        Bundle args = getArguments();
+        if (args != null) {
+            String email = args.getString("email", "");
 
-        // Expandable List
+            StudentInfo student = getStudentInfoByEmail(email);
+            if (student != null) {
+                studentName.setText("SINH VIÊN: " + student.name);
+                studentEmail.setText("Email: " + student.email);
+                studentId.setText("MSSV: " + student.studentId);
+                attendDay.setText("Số buổi học: " + student.attendedDays);
+                absentDay.setText("Số buổi vắng: " + student.absentDays);
+
+                loadSubjectData(student.subjects);
+            } else {
+                studentName.setText("SINH VIÊN: Không rõ");
+                studentEmail.setText("Email: Không rõ");
+                studentId.setText("MSSV: Không rõ");
+            }
+        }
+
+        btnLogout.setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).logoutStudent();
+            }
+
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        });
+    }
+
+    private StudentInfo getStudentInfoByEmail(String email) {
+        try {
+            InputStream is = requireContext().getAssets().open("student_info.csv");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            String line;
+            reader.readLine(); // Bỏ qua header
+
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split(",");
+                if (tokens.length >= 7 && tokens[1].trim().equals(email)) {
+                    StudentInfo student = new StudentInfo();
+                    student.name = tokens[0].trim();
+                    student.email = tokens[1].trim();
+                    student.password = tokens[2].trim();
+                    student.studentId = tokens[3].trim();
+                    student.attendedDays = tokens[4].trim();
+                    student.absentDays = tokens[5].trim();
+                    student.subjects = tokens[6].trim().split(";");
+                    return student;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void loadSubjectData(String[] subjects) {
         groupList = new ArrayList<>();
         childList = new ArrayList<>();
+
+        for (String subject : subjects) {
+            Map<String, String> groupMap = new HashMap<>();
+            groupMap.put("Subject", subject.trim());
+            groupList.add(groupMap);
+
+            List<Map<String, String>> children = new ArrayList<>();
+            Map<String, String> teacher = new HashMap<>();
+            teacher.put("Detail", "Giảng viên: " + (subject.contains("Toeic") ? "Thầy A" : "Cô B"));
+            children.add(teacher);
+
+            Map<String, String> room = new HashMap<>();
+            room.put("Detail", "Phòng: " + (subject.contains("Toeic") ? "B201" : "C302"));
+            children.add(room);
+
+            childList.add(children);
+        }
 
         adapter = new SimpleExpandableListAdapter(
                 requireContext(),
@@ -75,42 +144,23 @@ public class StudentFragment extends Fragment {
                 new String[]{"Detail"},
                 new int[]{R.id.tv_child}
         );
+
         elvSubjects.setAdapter(adapter);
 
         elvSubjects.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
-            Map<String, String> child = childList.get(groupPosition).get(childPosition);
-            String detail = child.get("Detail");
+            String detail = childList.get(groupPosition).get(childPosition).get("Detail");
             Toast.makeText(getContext(), "Bạn chọn: " + detail, Toast.LENGTH_SHORT).show();
             return true;
         });
-
-        loadSubjectData();
     }
 
-    private void loadSubjectData() {
-        groupList.clear();
-        childList.clear();
-
-        String[] subjects = {"Toeic 900+", "Ielt 6.5"};
-        String[][] details = {
-                {"Giảng viên: Thầy A", "Phòng: B201"},
-                {"Giảng viên: Cô B", "Phòng: C302"}
-        };
-
-        for (int i = 0; i < subjects.length; i++) {
-            Map<String, String> subjectMap = new HashMap<>();
-            subjectMap.put("Subject", subjects[i]);
-            groupList.add(subjectMap);
-
-            List<Map<String, String>> child = new ArrayList<>();
-            for (String d : details[i]) {
-                Map<String, String> detailMap = new HashMap<>();
-                detailMap.put("Detail", d);
-                child.add(detailMap);
-            }
-            childList.add(child);
-        }
-
-        adapter.notifyDataSetChanged();
+    private static class StudentInfo {
+        String name;
+        String email;
+        String password;
+        String studentId;
+        String attendedDays;
+        String absentDays;
+        String[] subjects;
     }
 }

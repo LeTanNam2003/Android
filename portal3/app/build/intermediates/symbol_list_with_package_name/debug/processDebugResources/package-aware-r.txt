@@ -3086,6 +3086,7 @@ drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_dashboard
+drawable ic_feedback
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3098,6 +3099,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_school
+drawable ic_score
 drawable ic_search_black_24
 drawable ic_students
 drawable ic_teachers
@@ -3285,6 +3287,8 @@ id bounceEnd
 id bounceStart
 id btnRegister
 id btn_feedback
+id btn_login
+id btn_logout
 id btn_view_grades
 id button
 id button2
@@ -3379,6 +3383,8 @@ id endToStart
 id enterAlways
 id enterAlwaysCollapsed
 id escape
+id et_email
+id et_password
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3446,6 +3452,7 @@ id locale
 id ltr
 id lv_class
 id m3_side_sheet
+id main
 id main_container
 id marquee
 id masked
@@ -3861,6 +3868,8 @@ layout abc_tooltip
 layout activity_login
 layout activity_main
 layout activity_register
+layout activity_student_auth
+layout activity_teacher_auth
 layout child_item_clickable_text
 layout custom_dialog
 layout design_bottom_navigation_item

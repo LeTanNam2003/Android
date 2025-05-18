@@ -20,6 +20,16 @@
           <theme>@style/Theme.Portal3</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_student_auth.xml">
+        <config>
+          <theme>@style/Theme.Portal3</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_teacher_auth.xml">
+        <config>
+          <theme>@style/Theme.Portal3</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/child_item_clickable_text.xml">
         <config>
           <theme>@style/Theme.Portal3</theme>
@@ -120,6 +130,9 @@
     <key name="android.template.-2127838526">
       <recent name="com.example.portal3" />
     </key>
+    <key name="android.template.403065641">
+      <recent name="com.example.portal3" />
+    </key>
     <key name="android.template.-789953547">
       <recent name="com.example.portal3" />
     </key>
@@ -213,12 +226,12 @@
       <map>
         <entry key="com.example.portal3">
           <value>
-            <CheckInfo lastCheckTimestamp="1747143252315" />
+            <CheckInfo lastCheckTimestamp="1747553888146" />
           </value>
         </entry>
         <entry key="com.example.portal3.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1747143252312" />
+            <CheckInfo lastCheckTimestamp="1747553888146" />
           </value>
         </entry>
       </map>

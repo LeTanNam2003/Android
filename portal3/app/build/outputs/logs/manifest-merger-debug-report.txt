@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [androidx.navigation:navigation-common:2.8.9] C:\Users\letan\.gradle\caches\8.10.2\transforms\78a53b8708a3bd0e46f8e3de10d0476b\transformed\navigation-common-2.8.9\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.8.9] C:\Users\letan\.gradle\caches\8.10.2\transforms\18310e53dcac1e04bd31e190d5cbe6f8\transformed\navigation-runtime-2.8.9\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-fragment:2.8.9] C:\Users\letan\.gradle\caches\8.10.2\transforms\6a22cd15b4670dbb841e6c054343aebe\transformed\navigation-fragment-2.8.9\AndroidManifest.xml:17:1-22:12
@@ -69,8 +69,8 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\letan\.
 	xmlns:android
 		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:5:5-31:19
-INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:5:5-31:19
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:5:5-36:19
+INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:5:5-36:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\letan\.gradle\caches\8.10.2\transforms\27aa0c71a58173186473a896e2a4c2e8\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\letan\.gradle\caches\8.10.2\transforms\27aa0c71a58173186473a896e2a4c2e8\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\letan\.gradle\caches\8.10.2\transforms\e6669c96727b374ab22c5c6706ade7ea\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
@@ -111,34 +111,46 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\le
 		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:13:9-45
 	android:dataExtractionRules
 		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:7:9-65
-activity#com.example.portal3.RegisterActivity
+activity#com.example.portal3.TeacherAuthActivity
 ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:15:9-17:40
 	android:exported
 		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:16:13-45
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:16:13-48
+activity#com.example.portal3.StudentAuthActivity
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:18:9-20:40
+	android:exported
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:20:13-37
+	android:name
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:19:13-48
+activity#com.example.portal3.RegisterActivity
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:21:9-23:40
+	android:exported
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:23:13-37
+	android:name
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:22:13-45
 activity#com.example.portal3.LoginActivity
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:19:9-27:20
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:24:9-32:20
 	android:exported
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:21:13-36
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:26:13-36
 	android:name
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:20:13-42
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:25:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:30:27-74
 activity#com.example.portal3.MainActivity
-ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:28:9-30:39
+ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:33:9-35:39
 	android:exported
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:30:13-36
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:35:13-36
 	android:name
-		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:29:13-41
+		ADDED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml:34:13-41
 uses-sdk
 INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\letan\AndroidStudioProjects\portal3\app\src\main\AndroidManifest.xml

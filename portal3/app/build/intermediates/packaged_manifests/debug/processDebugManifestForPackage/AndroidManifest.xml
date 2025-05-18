@@ -28,9 +28,14 @@
         android:testOnly="true"
         android:theme="@style/Theme.Portal3" >
         <activity
-            android:name="com.example.portal3.RegisterActivity"
+            android:name="com.example.portal3.TeacherAuthActivity"
             android:exported="false" />
-        <!-- Đảm bảo LoginActivity có android:exported="true" -->
+        <activity
+            android:name="com.example.portal3.StudentAuthActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.portal3.RegisterActivity"
+            android:exported="false" /> <!-- Đảm bảo LoginActivity có android:exported="true" -->
         <activity
             android:name="com.example.portal3.LoginActivity"
             android:exported="true" > <!-- Thêm dòng này -->
