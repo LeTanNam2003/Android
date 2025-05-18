@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (name.isEmpty() || mobile.isEmpty() || email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean result = dbHelper.addUser(name, mobile, email, password);
+                    /*boolean result = dbHelper.addUser(name, mobile, email, password);
                     if (result) {
                         Toast.makeText(RegisterActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -47,7 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
                         finish(); // Đóng màn hình đăng ký
                     } else {
                         Toast.makeText(RegisterActivity.this, "Lỗi khi đăng ký!", Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
+                    Toast.makeText(RegisterActivity.this, "Đã đăng ký", Toast.LENGTH_SHORT).show();
                 }
             }
         });

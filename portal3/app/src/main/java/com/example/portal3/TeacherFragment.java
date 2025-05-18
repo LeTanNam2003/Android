@@ -1,6 +1,10 @@
 package com.example.portal3;
 
+import static android.content.ContentValues.TAG;
+import static com.example.portal3.LoginActivity.getEmail_typed;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +14,9 @@ import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 
 //import java.text.SimpleDateFormat;
 import java.text.SimpleDateFormat;
@@ -26,6 +28,8 @@ import java.util.Locale;
 import java.util.Map;
 //import java.util.Date;
 //import java.util.Locale;
+import android.database.Cursor;
+import com.example.portal3.LoginActivity;
 
 public class TeacherFragment extends Fragment {
 
@@ -34,6 +38,7 @@ public class TeacherFragment extends Fragment {
     private ArrayList listItem;
     private TextView today_date;
     private SimpleExpandableListAdapter adapter;
+    private static String user_email;
     public TeacherFragment() {
         // Required empty public constructor
         //super(R.layout.fragment_teacher);
@@ -47,7 +52,7 @@ public class TeacherFragment extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        TextView teacher = view.findViewById(R.id.teacher_name);
+        TextView teacher_name = view.findViewById(R.id.teacher_name);
         TextView teacher_id = view.findViewById(R.id.teacher_id);
         TextView teacher_email = view.findViewById(R.id.teacher_email);
         super.onViewCreated(view, savedInstanceState);
@@ -76,29 +81,57 @@ public class TeacherFragment extends Fragment {
             Toast.makeText(requireContext(), "Clicked: " + item, Toast.LENGTH_SHORT).show();
             return true;
         }));
-        initData();
 
+        // Read data from email
+        user_email = getEmail_typed();
+        DBHelper db = new DBHelper(requireContext());
+        Cursor teacher_info_cursor = db.getTeacherInfoByMail(user_email);
+        String user_id = "";
+        if(teacher_info_cursor != null && teacher_info_cursor.moveToFirst()) {
+            user_id = teacher_info_cursor.getString(teacher_info_cursor.getColumnIndexOrThrow("_id"));
+        }
+        Cursor teacher_schedule_cursor = db.getScheduleByID(user_id);
+        if(teacher_info_cursor != null && teacher_info_cursor.moveToFirst()) {
+            teacher_name.setText(teacher_name.getText().toString() + teacher_info_cursor.getString(teacher_info_cursor.getColumnIndexOrThrow("name")));
+            teacher_id.setText(teacher_id.getText().toString() + user_id);
+            teacher_email.setText(teacher_email.getText().toString() + user_email);
+        }
+        initData(teacher_schedule_cursor);
 
-        teacher.setText(teacher.getText().toString() + "VŨ NAM SƠN");
-        teacher_id.setText(teacher_id.getText().toString() + "T-001");
-        teacher_email.setText(teacher_email.getText().toString() + "vunamson@email.com");
 
     }
 
-    private void initData() {
-        String[] class_teach = {"IELTS 6.5 (LỚP A)", "TOEIC 900 (LỚP B)"};
-        String[][] function = {
+    private void initData(Cursor cursor) {
+        //String[] class_teach = {"IELTS 6.5 (LỚP A)", "TOEIC 900 (LỚP B)"};
+        /*String[][] function = {
                 {"Danh sách lớp", "Bài tập", "Điểm số"},
                 {"Danh sách lớp", "Bài tập", "Điểm số"}
-        };
+        };*/
 
-        for (int i = 0; i < class_teach.length; i++) {
+        ArrayList<String> class_teach = new ArrayList<>();
+        List<List<String>> function = new ArrayList<>();
+        if(cursor.moveToFirst()) {
+            do {
+                int i = 0;
+                class_teach.add(cursor.getString(cursor.getColumnIndexOrThrow("class")));
+                Log.i(TAG, class_teach.get(i));
+                List<String> row = new ArrayList<>();
+                row.add("Danh sách lớp");
+                row.add("Bài tập");
+                row.add("Điểm số");
+                function.add(row);
+                i += 1;
+            } while(cursor.moveToNext());
+        }
+
+
+        for (int i = 0; i < class_teach.size(); i++) {
             Map<String, String> classMap = new HashMap<>();
-            classMap.put("Class", class_teach[i]);
+            classMap.put("Class", class_teach.get(i));
             listGroup.add(classMap);
 
             List<Map<String, String>> childList = new ArrayList<>();
-            for (String func : function[i]) {
+            for (String func : function.get(i)) {
                 Map<String, String> funcMap = new HashMap<>();
                 funcMap.put("Function", func);
                 childList.add(funcMap);

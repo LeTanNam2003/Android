@@ -3265,6 +3265,7 @@ id anticipate
 id arc
 id asConfigured
 id async
+id attend_day
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -3283,6 +3284,8 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnRegister
+id btn_feedback
+id btn_view_grades
 id button
 id button2
 id buttonPanel
@@ -3369,6 +3372,7 @@ id edit_query
 id edit_text_id
 id elastic
 id elv_class_schedule
+id elv_subject_list
 id embed
 id end
 id endToStart
@@ -3637,6 +3641,9 @@ id staticLayout
 id staticPostLayout
 id stop
 id stretch
+id student_email
+id student_id
+id student_name
 id submenuarrow
 id submit_area
 id supportScrollUp
@@ -3670,7 +3677,6 @@ id textView2
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_students
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3709,7 +3715,9 @@ id tvTotalClasses
 id tvTotalStudents
 id tvTotalTeachers
 id tv_child
+id tv_course_title
 id tv_today
+id tv_today_date
 id unchecked
 id uniform
 id unlabeled

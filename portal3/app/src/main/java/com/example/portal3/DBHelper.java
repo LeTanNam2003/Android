@@ -15,20 +15,20 @@ public class DBHelper extends SQLiteOpenHelper {
     // Tên bảng và các cột
     public static final String TABLE_USER = "user";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_MOBILE = "mobile";
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_NAME = "name";
+    public static final String TABLE_USER_SCHEDULE = "user_schedule";
+    public static final String COLUMN_TIME = "time";
+    public static final String COLUMN_CLASS = "class";
+    public static final String COLUMN_DAY = "day";
 
-    // Câu lệnh tạo bảng
     private static final String DATABASE_CREATE =
             "create table " + TABLE_USER + " (" +
-                    COLUMN_ID + " integer primary key autoincrement, " +
-                    COLUMN_NAME + " text not null, " +
-                    COLUMN_MOBILE + " text not null, " +
+                    COLUMN_ID + " text primary key, " +
                     COLUMN_EMAIL + " text not null, " +
-                    COLUMN_PASSWORD + " text not null);";
-
+                    COLUMN_PASSWORD + " text not null, " +
+                    COLUMN_NAME + " text not null)";
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -36,6 +36,12 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE); // Tạo bảng nếu chưa tồn tại
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_USER_SCHEDULE + " (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_ID + " text not null, " +
+                COLUMN_TIME + " text not null, " +
+                COLUMN_DAY + " text not null, " +
+                COLUMN_CLASS + " text not null)");
         db.execSQL("CREATE TABLE IF NOT EXISTS visits(id INTEGER PRIMARY KEY AUTOINCREMENT, count INTEGER)");
         db.execSQL("INSERT INTO visits (count) SELECT 0 WHERE NOT EXISTS (SELECT 1 FROM visits)");
 
@@ -44,17 +50,28 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER); // Xóa bảng cũ nếu có
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_SCHEDULE);
         onCreate(db); // Tạo lại bảng
     }
 
     // Hàm thêm người dùng vào cơ sở dữ liệu
-    public boolean addUser(String name, String mobile, String email, String password) {
+    public boolean addUser(String id, String email, String password, String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         try {
-            db.execSQL("INSERT INTO " + TABLE_USER + " (" +
-                            COLUMN_NAME + ", " + COLUMN_MOBILE + ", " +
-                            COLUMN_EMAIL + ", " + COLUMN_PASSWORD + ") VALUES (?, ?, ?, ?)",
-                    new Object[]{name, mobile, email, password});
+            db.execSQL("INSERT INTO " + TABLE_USER + " (" + COLUMN_ID + ", " + COLUMN_EMAIL + ", " + COLUMN_PASSWORD + ", " + COLUMN_NAME + ") VALUES (?, ?, ?, ?)",
+                        new Object[]{id, email, password, name});
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean addSchedule(String id, String time, String class_name, String day) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            db.execSQL("INSERT INTO " + TABLE_USER_SCHEDULE + " (" + COLUMN_ID + ", " + COLUMN_TIME + ", " + COLUMN_DAY + ", " + COLUMN_CLASS + ") VALUES (?, ?, ?, ?)",
+                    new Object[]{id, time, day, class_name});
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,6 +105,16 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return count;
+    }
+
+    public Cursor getTeacherInfoByMail(String email) {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_USER + " WHERE email = ?", new String[]{email});
+    }
+
+    public Cursor getScheduleByID(String id) {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_USER_SCHEDULE + " WHERE _id = ?", new String[]{id});
     }
 
 }
