@@ -1,6 +1,0 @@
-﻿id,email,password,name,schedule
-t001,vunamson.001@example.com,vunamson.001,VŨ NAM SƠN,9:00 AM | Thứ 7 | Tiếng Anh giao tiếp cơ bản ; 3:00 PM | Thứ 7 | TOEIC L/R A
-t002,johndoe.002@example.com,johndoe.002,JOHN DOE,2:00 PM | Thứ 2 | English for kids
-t003,tranvana.001@example.com,tranvana_s.001,TRẦN VĂN A,2:00 PM | Thứ 2 | English for kids
-t004,havanb.002@example.com,havanb_s.002,HÀ VĂN B,9:00 AM | Thứ 7 | Tiếng Anh giao tiếp cơ bản 
-t005,tranvanc.admin@example.com,tranvanc_admin,TRẦN VĂN C,3:00 PM | Thứ 7 | TOEIC L/R A

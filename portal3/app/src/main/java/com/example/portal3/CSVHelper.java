@@ -22,8 +22,7 @@ public class CSVHelper {
 
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] row = line.split(",");
-                data.add(row);
+                data.add(parseCSVLine(line));
             }
 
             reader.close();
@@ -32,5 +31,29 @@ public class CSVHelper {
         }
 
         return data;
+    }
+
+    private static String[] parseCSVLine(String line) {
+        List<String> tokens = new ArrayList<>();
+        StringBuilder current = new StringBuilder();
+        boolean inQuotes = false;
+
+        for (int i = 0; i < line.length(); i++) {
+            char c = line.charAt(i);
+
+            if (c == '\"') {
+                inQuotes = !inQuotes; // Toggle quote mode
+            } else if (c == ',' && !inQuotes) {
+                tokens.add(current.toString().trim());
+                current.setLength(0); // Reset StringBuilder
+            } else {
+                current.append(c);
+            }
+        }
+
+        // Add last token
+        tokens.add(current.toString().trim());
+
+        return tokens.toArray(new String[0]);
     }
 }

@@ -3284,7 +3284,10 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnRegister
+id btn_attach
 id btn_feedback
+id btn_return
+id btn_submit
 id btn_view_grades
 id button
 id button2
@@ -3307,6 +3310,7 @@ id checked
 id chronometer
 id cirLoginButton
 id circle_center
+id class_name
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -3379,6 +3383,8 @@ id endToStart
 id enterAlways
 id enterAlwaysCollapsed
 id escape
+id et_description
+id et_title
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3445,6 +3451,7 @@ id list_item
 id locale
 id ltr
 id lv_class
+id lv_student
 id m3_side_sheet
 id main_container
 id marquee
@@ -3644,6 +3651,8 @@ id stretch
 id student_email
 id student_id
 id student_name
+id subject_name
+id subject_time
 id submenuarrow
 id submit_area
 id supportScrollUp
@@ -3664,7 +3673,6 @@ id tag_window_insets_animation_callback
 id teach_date
 id teacher_email
 id teacher_id
-id teacher_name
 id text
 id text2
 id textEnd
@@ -3716,6 +3724,7 @@ id tvTotalStudents
 id tvTotalTeachers
 id tv_child
 id tv_course_title
+id tv_file_name
 id tv_today
 id tv_today_date
 id unchecked
@@ -3878,9 +3887,11 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout expandable_list_item
 layout fragment_dashboard
 layout fragment_student
 layout fragment_teacher
+layout fragment_teacher_homework
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout m3_alert_dialog
@@ -3944,6 +3955,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout student_list
 layout support_simple_spinner_dropdown_item
 menu bottom_nav_menu
 menu drawer_menu

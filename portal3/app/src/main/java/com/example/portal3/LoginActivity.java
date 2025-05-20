@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     DBHelper dbHelper;
     private static String email_typed;
     private String password_typed;
+    StudentDBHelper studentDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,35 +36,35 @@ public class LoginActivity extends AppCompatActivity {
         tvSignup = findViewById(R.id.tvSignup); // Kết nối TextView
 
         dbHelper = new DBHelper(this);
+        studentDBHelper = new StudentDBHelper(this);
 
-        // Read login info from .csv file
-        List<String[]> csvData = CSVHelper.readCSV(this, "login_2.csv");
+        // Read login info (teacher) from .csv file
+        List<String[]> csvData = CSVHelper.readCSV(this, "teacher_info.csv");
         for (int i = 1; i < csvData.size(); i++) {
             String[] row = csvData.get(i);
             String id = row[0];
             String email = row[1];
             String password = row[2];
             String name = row[3];
-            String schedule = row[4];
-            Log.i(TAG, schedule);
-            // Split the schedule
-            if(schedule != null && !schedule.isEmpty()) {
-                String[] schedules = schedule.split(";");
-                for (String s : schedules) {
-                    String[] parts = s.trim().split("\\|");
-                    if (parts.length == 3) {
-                        String time = parts[0].trim();
-                        String day = parts[1].trim();
-                        String className = parts[2].trim();
-                        Log.i(TAG, time);
-                        Log.i(TAG, day);
-                        Log.i(TAG, className);
-                        // Do something with time, day, className
-                        boolean checker = dbHelper.addSchedule(id, time, className, day);
-                    }
-                }
-            }
-            boolean checker = dbHelper.addUser(id, email, password, name);
+            String timetable_date = row[4];
+            String class_name = row[5];
+            Log.i(TAG, timetable_date);
+            Log.i(TAG, class_name);
+            dbHelper.addUser(id, email, password, name);
+            dbHelper.addSchedule(id, timetable_date, class_name);
+        }
+
+        // Read login info (student) from .csv file
+        List<String[]> csvData_student = CSVHelper.readCSV(this, "student_info.csv");
+        for(int i = 1; i < csvData_student.size(); i++) {
+            String[] row = csvData_student.get(i);
+            String name = row[0];
+            String email = row[1];
+            String password = row[2];
+            String id = row[3];
+            String date = row[4];
+            String class_name = row[5];
+            studentDBHelper.addStudent(id, email, password, name, class_name, date);
         }
 
 

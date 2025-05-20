@@ -21,7 +21,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_USER_SCHEDULE = "user_schedule";
     public static final String COLUMN_TIME = "time";
     public static final String COLUMN_CLASS = "class";
-    public static final String COLUMN_DAY = "day";
 
     private static final String DATABASE_CREATE =
             "create table " + TABLE_USER + " (" +
@@ -40,7 +39,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_ID + " text not null, " +
                 COLUMN_TIME + " text not null, " +
-                COLUMN_DAY + " text not null, " +
                 COLUMN_CLASS + " text not null)");
         db.execSQL("CREATE TABLE IF NOT EXISTS visits(id INTEGER PRIMARY KEY AUTOINCREMENT, count INTEGER)");
         db.execSQL("INSERT INTO visits (count) SELECT 0 WHERE NOT EXISTS (SELECT 1 FROM visits)");
@@ -67,11 +65,11 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addSchedule(String id, String time, String class_name, String day) {
+    public boolean addSchedule(String id, String time, String class_name) {
         SQLiteDatabase db = this.getWritableDatabase();
         try {
-            db.execSQL("INSERT INTO " + TABLE_USER_SCHEDULE + " (" + COLUMN_ID + ", " + COLUMN_TIME + ", " + COLUMN_DAY + ", " + COLUMN_CLASS + ") VALUES (?, ?, ?, ?)",
-                    new Object[]{id, time, day, class_name});
+            db.execSQL("INSERT INTO " + TABLE_USER_SCHEDULE + " (" + COLUMN_ID + ", " + COLUMN_TIME + ", " + COLUMN_CLASS + ") VALUES (?, ?, ?)",
+                    new Object[]{id, time, class_name});
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

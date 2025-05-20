@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
@@ -29,16 +28,17 @@ import java.util.Map;
 //import java.util.Date;
 //import java.util.Locale;
 import android.database.Cursor;
-import com.example.portal3.LoginActivity;
 
 public class TeacherFragment extends Fragment {
 
     private ExpandableListView elv_class_schedule;
-    private ArrayList listGroup;
-    private ArrayList listItem;
+    private List<Map<String, String>> listGroup;
+    private List<List<Map<String, String>>> listItem;
     private TextView today_date;
     private SimpleExpandableListAdapter adapter;
     private static String user_email;
+    private Cursor teacher_info_cursor;
+    private Cursor teacher_schedule_cursor;
     public TeacherFragment() {
         // Required empty public constructor
         //super(R.layout.fragment_teacher);
@@ -52,13 +52,27 @@ public class TeacherFragment extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        TextView teacher_name = view.findViewById(R.id.teacher_name);
+        TextView teacher_name = view.findViewById(R.id.class_name);
         TextView teacher_id = view.findViewById(R.id.teacher_id);
         TextView teacher_email = view.findViewById(R.id.teacher_email);
         super.onViewCreated(view, savedInstanceState);
         today_date = view.findViewById(R.id.tv_today);
         String currentDate = new SimpleDateFormat("EEEE, dd/MM/yyyy", new Locale("vi", "VN")).format(new Date());
         today_date.setText(currentDate);
+        // Read data from email
+        user_email = getEmail_typed();
+        DBHelper db = new DBHelper(requireContext());
+        teacher_info_cursor = db.getTeacherInfoByMail(user_email);
+        String user_id = "";
+        if(teacher_info_cursor != null && teacher_info_cursor.moveToFirst()) {
+            teacher_name.setText(teacher_name.getText().toString() + teacher_info_cursor.getString(teacher_info_cursor.getColumnIndexOrThrow("name")));
+            teacher_id.setText(teacher_id.getText().toString() + user_id);
+            teacher_email.setText(teacher_email.getText().toString() + user_email);
+        }
+        if(teacher_info_cursor != null && teacher_info_cursor.moveToFirst()) {
+            user_id = teacher_info_cursor.getString(teacher_info_cursor.getColumnIndexOrThrow("_id"));
+        }
+        teacher_schedule_cursor = db.getScheduleByID(user_id);
         elv_class_schedule = view.findViewById(R.id.elv_class_schedule);
         listGroup = new ArrayList<>();
         listItem = new ArrayList<>();
@@ -79,26 +93,33 @@ public class TeacherFragment extends Fragment {
             Map<String, String> childMap = childList.get(childPosition);
             String item = childMap.get("Function");
             Toast.makeText(requireContext(), "Clicked: " + item, Toast.LENGTH_SHORT).show();
+            String class_name = null;
+            if(teacher_schedule_cursor != null && teacher_schedule_cursor.moveToPosition(groupPosition)) {
+                class_name = teacher_schedule_cursor.getString(teacher_schedule_cursor.getColumnIndexOrThrow("class"));
+            }
+            Fragment targetFragment = requireActivity().getSupportFragmentManager().findFragmentById(R.id.main_container);
+            switch(item) {
+                case "Bài tập":
+                    targetFragment = new TeacherHomeworkFragment();
+                    break;
+                case "Danh sách lớp":
+                    targetFragment = new StudentList();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("class_name", class_name);
+                    targetFragment.setArguments(bundle);
+                    break;
+                default:
+                    break;
+            }
+            // Replace current fragment with targetFragment
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, targetFragment)  // your container id
+                    .addToBackStack(null)
+                    .commit();
             return true;
         }));
-
-        // Read data from email
-        user_email = getEmail_typed();
-        DBHelper db = new DBHelper(requireContext());
-        Cursor teacher_info_cursor = db.getTeacherInfoByMail(user_email);
-        String user_id = "";
-        if(teacher_info_cursor != null && teacher_info_cursor.moveToFirst()) {
-            user_id = teacher_info_cursor.getString(teacher_info_cursor.getColumnIndexOrThrow("_id"));
-        }
-        Cursor teacher_schedule_cursor = db.getScheduleByID(user_id);
-        if(teacher_info_cursor != null && teacher_info_cursor.moveToFirst()) {
-            teacher_name.setText(teacher_name.getText().toString() + teacher_info_cursor.getString(teacher_info_cursor.getColumnIndexOrThrow("name")));
-            teacher_id.setText(teacher_id.getText().toString() + user_id);
-            teacher_email.setText(teacher_email.getText().toString() + user_email);
-        }
         initData(teacher_schedule_cursor);
-
-
     }
 
     private void initData(Cursor cursor) {
@@ -141,5 +162,4 @@ public class TeacherFragment extends Fragment {
 
         adapter.notifyDataSetChanged();
     }
-
 }

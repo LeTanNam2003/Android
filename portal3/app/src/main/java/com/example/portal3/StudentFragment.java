@@ -1,6 +1,10 @@
 package com.example.portal3;
 
+import static android.content.ContentValues.TAG;
+import static com.example.portal3.LoginActivity.getEmail_typed;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +25,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import android.database.Cursor;
+
 public class StudentFragment extends Fragment {
 
     private TextView todayDate;
@@ -28,8 +34,10 @@ public class StudentFragment extends Fragment {
     private ArrayList<Map<String, String>> groupList;
     private ArrayList<List<Map<String, String>>> childList;
     private SimpleExpandableListAdapter adapter;
+    private static String user_email;
 
-    public StudentFragment() {}
+    public StudentFragment() {
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
