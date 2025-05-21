@@ -9,14 +9,14 @@
     <ImageView
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:src="@drawable/ic_login"
         android:contentDescription="App Icon"
         android:layout_marginBottom="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tên User"
+        android:text="User name"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />

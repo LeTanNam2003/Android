@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_assign_homework.xml">
+        <config>
+          <theme>@style/Theme.Portal3</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
         <config>
           <theme>@style/Theme.Portal3</theme>
@@ -46,6 +51,16 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_teacher.xml">
+        <config>
+          <theme>@style/Theme.Portal3</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_class_schedule.xml">
+        <config>
+          <theme>@style/Theme.Portal3</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_subject.xml">
         <config>
           <theme>@style/Theme.Portal3</theme>
         </config>
@@ -96,9 +111,9 @@
       <list>
         <option value="navigationResourceFile" />
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -131,6 +146,9 @@
       <recent name="com.example.portal3" />
     </key>
     <key name="android.template.403065641">
+      <recent name="com.example.portal3" />
+    </key>
+    <key name="android.template.1173186189">
       <recent name="com.example.portal3" />
     </key>
     <key name="android.template.-789953547">
@@ -226,12 +244,12 @@
       <map>
         <entry key="com.example.portal3">
           <value>
-            <CheckInfo lastCheckTimestamp="1747553888146" />
+            <CheckInfo lastCheckTimestamp="1747833758747" />
           </value>
         </entry>
         <entry key="com.example.portal3.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1747553888146" />
+            <CheckInfo lastCheckTimestamp="1747833758746" />
           </value>
         </entry>
       </map>

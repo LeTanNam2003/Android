@@ -6,14 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ExpandableListView;
-import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -24,10 +24,7 @@ import java.util.*;
 public class StudentFragment extends Fragment {
 
     private TextView todayDate;
-    private ExpandableListView elvSubjects;
-    private ArrayList<Map<String, String>> groupList;
-    private ArrayList<List<Map<String, String>>> childList;
-    private SimpleExpandableListAdapter adapter;
+    private RecyclerView rvSubjectList;
 
     public StudentFragment() {}
 
@@ -48,11 +45,14 @@ public class StudentFragment extends Fragment {
         TextView attendDay = view.findViewById(R.id.attend_day);
         TextView absentDay = view.findViewById(R.id.absent_day);
         todayDate = view.findViewById(R.id.tv_today_date);
-        elvSubjects = view.findViewById(R.id.elv_subject_list);
+        rvSubjectList = view.findViewById(R.id.rv_subject_list);
+
         Button btnLogout = view.findViewById(R.id.btn_logout);
 
         String currentDate = new SimpleDateFormat("EEEE, dd/MM/yyyy", new Locale("vi", "VN")).format(new Date());
         todayDate.setText(currentDate);
+
+        rvSubjectList.setLayoutManager(new LinearLayoutManager(getContext()));
 
         Bundle args = getArguments();
         if (args != null) {
@@ -113,45 +113,16 @@ public class StudentFragment extends Fragment {
     }
 
     private void loadSubjectData(String[] subjects) {
-        groupList = new ArrayList<>();
-        childList = new ArrayList<>();
+        List<SubjectItem> subjectItems = new ArrayList<>();
 
         for (String subject : subjects) {
-            Map<String, String> groupMap = new HashMap<>();
-            groupMap.put("Subject", subject.trim());
-            groupList.add(groupMap);
-
-            List<Map<String, String>> children = new ArrayList<>();
-            Map<String, String> teacher = new HashMap<>();
-            teacher.put("Detail", "Giảng viên: " + (subject.contains("Toeic") ? "Thầy A" : "Cô B"));
-            children.add(teacher);
-
-            Map<String, String> room = new HashMap<>();
-            room.put("Detail", "Phòng: " + (subject.contains("Toeic") ? "B201" : "C302"));
-            children.add(room);
-
-            childList.add(children);
+            String teacher = subject.contains("Toeic") ? "Thầy A" : "Cô B";
+            String room = subject.contains("Toeic") ? "B201" : "C302";
+            subjectItems.add(new SubjectItem(subject.trim(), teacher, room));
         }
 
-        adapter = new SimpleExpandableListAdapter(
-                requireContext(),
-                groupList,
-                android.R.layout.simple_expandable_list_item_1,
-                new String[]{"Subject"},
-                new int[]{android.R.id.text1},
-                childList,
-                R.layout.child_item_clickable_text,
-                new String[]{"Detail"},
-                new int[]{R.id.tv_child}
-        );
-
-        elvSubjects.setAdapter(adapter);
-
-        elvSubjects.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
-            String detail = childList.get(groupPosition).get(childPosition).get("Detail");
-            Toast.makeText(getContext(), "Bạn chọn: " + detail, Toast.LENGTH_SHORT).show();
-            return true;
-        });
+        SubjectAdapter adapter = new SubjectAdapter(subjectItems);
+        rvSubjectList.setAdapter(adapter);
     }
 
     private static class StudentInfo {
@@ -162,5 +133,62 @@ public class StudentFragment extends Fragment {
         String attendedDays;
         String absentDays;
         String[] subjects;
+    }
+
+    // SubjectItem model
+    private static class SubjectItem {
+        String name;
+        String teacher;
+        String room;
+
+        SubjectItem(String name, String teacher, String room) {
+            this.name = name;
+            this.teacher = teacher;
+            this.room = room;
+        }
+    }
+
+    // RecyclerView Adapter
+    private class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {
+        private final List<SubjectItem> subjectList;
+
+        SubjectAdapter(List<SubjectItem> subjectList) {
+            this.subjectList = subjectList;
+        }
+
+        @NonNull
+        @Override
+        public SubjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_subject, parent, false);
+            return new SubjectViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
+            SubjectItem item = subjectList.get(position);
+            holder.tvSubjectName.setText(item.name);
+            holder.tvTeacher.setText("Giảng viên: " + item.teacher);
+            holder.tvRoom.setText("Phòng: " + item.room);
+
+            holder.itemView.setOnClickListener(v ->
+                    Toast.makeText(getContext(), "Bạn chọn: " + item.name, Toast.LENGTH_SHORT).show());
+        }
+
+        @Override
+        public int getItemCount() {
+            return subjectList.size();
+        }
+
+        class SubjectViewHolder extends RecyclerView.ViewHolder {
+            TextView tvSubjectName, tvTeacher, tvRoom;
+
+            SubjectViewHolder(@NonNull View itemView) {
+                super(itemView);
+                tvSubjectName = itemView.findViewById(R.id.tv_subject_name);
+                tvTeacher = itemView.findViewById(R.id.tv_teacher);
+                tvRoom = itemView.findViewById(R.id.tv_room);
+            }
+        }
     }
 }

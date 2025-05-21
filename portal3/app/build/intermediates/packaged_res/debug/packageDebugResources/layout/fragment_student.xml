@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,16 +41,16 @@
                     android:id="@+id/student_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MSSV: 123456"
                     android:layout_marginTop="4dp"
+                    android:text="MSSV: 123456"
                     android:textColor="#666" />
 
                 <TextView
                     android:id="@+id/student_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email: student@example.com"
                     android:layout_marginTop="2dp"
+                    android:text="Email: student@example.com"
                     android:textColor="#666" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -65,9 +66,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp"> <!-- Giảm padding xuống -->
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/tv_course_title"
@@ -88,16 +89,16 @@
                     android:textColor="#888"
                     android:textSize="13sp" />
 
-                <ExpandableListView
-                    android:id="@+id/elv_subject_list"
+                <!-- RecyclerView thay cho ExpandableListView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_subject_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:divider="@android:color/darker_gray"
-                    android:dividerHeight="0.5dp"
-                    android:padding="0dp" />
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingBottom="8dp"
+                    android:clipToPadding="false" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
         <!-- Thống kê đi học -->
@@ -145,9 +146,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp"
-            android:layout_marginBottom="16dp"
             android:backgroundTint="#FFFFFF">
 
             <LinearLayout
@@ -158,7 +159,7 @@
                 android:padding="12dp"
                 android:weightSum="2">
 
-                <!-- Nút Xem điểm -->
+                <!-- Homework -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -170,13 +171,13 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:src="@drawable/ic_score"
-                        android:contentDescription="Xem điểm" />
+                        android:contentDescription="Làm bài" />
 
                     <TextView
                         android:id="@+id/btn_view_grades"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Xem điểm"
+                        android:text="Làm bài"
                         android:textSize="14sp"
                         android:textColor="#4CAF50"
                         android:layout_marginTop="4dp" />
@@ -218,6 +219,6 @@
             android:textAllCaps="false"
             android:textColor="#F44336"
             android:background="@android:color/transparent"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="24dp" />
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

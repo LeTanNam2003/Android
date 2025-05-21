@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle"
+        android:dividerPadding="8dp">
 
-        <!-- Thông tin giáo viên -->
+        <!-- Card: Thông tin giáo viên -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,38 +36,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="GIÁO VIÊN: "
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="start">
 
                     <TextView
                         android:id="@+id/teacher_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:text="MSGV: " />
+                        android:text="MSGV: "
+                        android:textSize="14sp"
+                        android:layout_marginEnd="24dp" />
 
                     <TextView
                         android:id="@+id/teacher_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email: " />
+                        android:text="Email: "
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Lịch giảng dạy -->
+        <!-- Card: Lịch giảng dạy -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,8 +85,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="THÔNG TIN LỚP HỌC"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/tv_today"
@@ -82,25 +96,27 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="Thứ 4, 12/04/2023"
-                    android:textSize="12sp" />
+                    android:textSize="13sp"
+                    android:textAlignment="center" />
 
-                <ExpandableListView
-                    android:id="@+id/elv_class_schedule"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_class_schedule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:divider="@android:color/darker_gray"
-                    android:dividerHeight="1dp" />
+                    android:layout_marginTop="8dp"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Thống kê -->
+        <!-- Card: Thống kê -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -113,22 +129,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="THỐNG KÊ NGÀY DẠY"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/teach_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Số ngày dạy" />
+                    android:layout_marginTop="6dp"
+                    android:text="Số ngày dạy"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/absent_day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Số ngày vắng" />
+                    android:text="Số ngày vắng"
+                    android:textSize="14sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -137,30 +157,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="24dp">
+            android:layout_marginTop="8dp">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chi tiết thu nhập"
+                android:text="Giao bài tập"
                 android:layout_marginBottom="8dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button2"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tin nhắn" />
+                android:text="Tin nhắn"
+                android:layout_marginBottom="8dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đăng xuất"
-                android:layout_marginTop="16dp"
                 android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/holo_red_light" />
+                android:backgroundTint="@android:color/holo_red_dark" />
         </LinearLayout>
-
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,6 @@
+teacher_id,name,email,password,courses,teaching_days,off_days
+t001,Thầy Nguyễn Văn Khoa,gv.khoa@example.com,gv123,"IELTS Practice",48,12
+t002,Cô Trần Thị Mai,gv.mai@example.com,gv123,"Listening",42,18
+t003,Thầy Lê Văn Bình,gv.binh@example.com,gv123,"Communication",50,10
+t004,Cô Phạm Thị Hạnh,gv.hanh@example.com,gv123,"Speaking",46,14
+t005,Thầy Hoàng Văn Nam,gv.nam@example.com,gv123,"Listening",53,7

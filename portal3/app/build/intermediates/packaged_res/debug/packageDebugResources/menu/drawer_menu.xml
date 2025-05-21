@@ -1,11 +1,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_dashboard"
-        android:title="Dashboard" />
-    <item
-        android:id="@+id/nav_students"
-        android:title="Students" />
-    <item
-        android:id="@+id/nav_teachers"
-        android:title="Teachers" />
+
+    <!-- Menu chính -->
+    <group android:id="@+id/main_menu">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard"
+            android:icon="@android:drawable/ic_menu_view" />
+        <item
+            android:id="@+id/nav_students"
+            android:title="Students"
+            android:icon="@android:drawable/ic_menu_edit" />
+        <item
+            android:id="@+id/nav_teachers"
+            android:title="Teachers"
+            android:icon="@android:drawable/ic_menu_agenda" />
+    </group>
+
+    <!-- Divider sẽ tự xuất hiện giữa 2 group -->
+    <!-- Menu logout ở cuối -->
+    <group android:id="@+id/logout_group">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout"
+            android:icon="@android:drawable/ic_lock_power_off"
+            android:orderInCategory="100" />
+    </group>
+
 </menu>

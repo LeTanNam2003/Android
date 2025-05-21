@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Portal3" >
         <activity
+            android:name="com.example.portal3.AssignHomeworkActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.portal3.TeacherAuthActivity"
             android:exported="false" />
         <activity

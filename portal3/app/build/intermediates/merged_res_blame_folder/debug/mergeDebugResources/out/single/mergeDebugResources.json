@@ -48,6 +48,10 @@
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.portal3.app-debug-44:/layout_activity_assign_homework.xml.flat",
+        "source": "com.example.portal3.app-main-46:/layout/activity_assign_homework.xml"
+    },
+    {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_bg_card_blue.png.flat",
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\bg_card_blue.png"
     },
@@ -64,12 +68,16 @@
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_score.png"
     },
     {
-        "merged": "com.example.portal3.app-debug-44:/layout_fragment_student.xml.flat",
-        "source": "com.example.portal3.app-main-46:/layout/fragment_student.xml"
+        "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_ic_menu_hamburger_scaled.xml.flat",
+        "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_menu_hamburger_scaled.xml"
     },
     {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.portal3.app-debug-44:/drawable_rounded_edittext.xml.flat",
+        "source": "com.example.portal3.app-main-46:/drawable/rounded_edittext.xml"
     },
     {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_ic_students.png.flat",
@@ -94,6 +102,10 @@
     {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_ic_school.png.flat",
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_school.png"
+    },
+    {
+        "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\layout_item_class_schedule.xml.flat",
+        "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\layout\\item_class_schedule.xml"
     },
     {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\layout_activity_student_auth.xml.flat",
@@ -136,6 +148,14 @@
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_ic_login.png.flat",
+        "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_login.png"
+    },
+    {
+        "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_ic_menu_hamburger.png.flat",
+        "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_menu_hamburger.png"
+    },
+    {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\menu_drawer_menu.xml.flat",
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\menu\\drawer_menu.xml"
     },
@@ -150,6 +170,10 @@
     {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\drawable_ic_dashboard.png.flat",
         "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\drawable\\ic_dashboard.png"
+    },
+    {
+        "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\layout_item_subject.xml.flat",
+        "source": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-main-46:\\layout\\item_subject.xml"
     },
     {
         "merged": "C:\\Users\\letan\\.gradle\\daemon\\8.10.2\\com.example.portal3.app-debug-44:\\mipmap-mdpi_ic_launcher.webp.flat",

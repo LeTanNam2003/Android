@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Mở navigation drawer
-        toolbar.setNavigationIcon(android.R.drawable.ic_menu_view);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_hamburger_scaled);
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
     }
 
@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void setTeacherLoggedIn(boolean loggedIn) {
+        sharedPreferences.edit().putBoolean(KEY_TEACHER_LOGGED_IN, loggedIn).apply();
         sharedPreferences.edit().putBoolean(KEY_TEACHER_LOGGED_IN, loggedIn).apply();
     }
 

@@ -18,7 +18,7 @@
     <dimen name="loginViewsMargin">20dp</dimen>
     <dimen name="newsMoreTextSize">12sp</dimen>
     <dimen name="signup_text_margin_top">10dp</dimen>
-    <string name="app_name">register_sample</string>
+    <string name="app_name">Language Center Management</string>
     <string name="dashboard">Dashboard</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
