@@ -1,6 +1,0 @@
-﻿id,email,password,name,schedule1,class1,day1,schedule2,class2,day2
-GV-001,vunamson.001@example.com,vunamson.001,VŨ NAM SƠN,9:00 AM,Tiếng Anh giao tiếp cơ bản,Thứ 7,3:00 PM,TOEIC L/R A,Thứ 7
-GV-002,johndoe.002@example.com,johndoe.002,JOHN DOE,9:00 AM,English for Kids,Chủ nhật,none,none,Chủ nhật
-HS-001,tranvana.001@example.com,tranvana_s.001,TRẦN VĂN A,9:00 AM,Tiếng Anh giao tiếp cơ bản,Thứ 7,none,none,Thứ 7
-HS-002,havanb.002@example.com,havanb_s.002,HÀ VĂN B,3:00 PM,TOEIC L/R A,Thứ 7,none,none,Thứ 7
-ADMIN,tranvanc.admin@example.com,tranvanc_admin,TRẦN VĂN C,admin,admin,admin,admin,admin,admin
