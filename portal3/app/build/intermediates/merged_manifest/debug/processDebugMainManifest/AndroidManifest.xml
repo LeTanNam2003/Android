@@ -28,9 +28,20 @@
         android:testOnly="true"
         android:theme="@style/Theme.Portal3" >
         <activity
-            android:name="com.example.portal3.RegisterActivity"
+            android:name="com.example.portal3.AssignHomeworkActivity"
             android:exported="false" />
-        <!-- Đảm bảo LoginActivity có android:exported="true" -->
+        <activity
+            android:name="com.example.portal3.TeacherAuthActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.portal3.StudentAuthActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.portal3.StudentHomeworkActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.portal3.RegisterActivity"
+            android:exported="false" /> <!-- Đảm bảo LoginActivity có android:exported="true" -->
         <activity
             android:name="com.example.portal3.LoginActivity"
             android:exported="true" > <!-- Thêm dòng này -->
@@ -44,6 +55,15 @@
             android:name="com.example.portal3.MainActivity"
             android:exported="true" />
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.portal3.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.portal3.androidx-startup"

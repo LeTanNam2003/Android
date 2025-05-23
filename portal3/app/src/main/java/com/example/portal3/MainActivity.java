@@ -1,72 +1,145 @@
 package com.example.portal3;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.appcompat.widget.Toolbar;
-import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
-    private AppBarConfiguration appBarConfiguration;
+    private SharedPreferences sharedPreferences;
+
+    private static final String PREFS_NAME = "app_prefs";
+    private static final String KEY_STUDENT_LOGGED_IN = "student_logged_in";
+    private static final String KEY_TEACHER_LOGGED_IN = "teacher_logged_in";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Set up toolbar
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Set up NavigationView (Navigation Drawer)
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Show the DashboardFragment by default when the app starts
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.main_container, new DashboardFragment()) // Start with DashboardFragment
-                    .commit();
-            navigationView.setCheckedItem(R.id.nav_dashboard); // Set "Dashboard" as checked item
+        Intent intent = getIntent();
+        if (intent != null) {
+            if (intent.getBooleanExtra("open_student_fragment", false)) {
+                setStudentLoggedIn(true);
+
+                // Truyền dữ liệu sinh viên sang Fragment
+                StudentFragment fragment = new StudentFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name", intent.getStringExtra("student_name"));
+                bundle.putString("email", intent.getStringExtra("student_email"));
+                bundle.putString("id", intent.getStringExtra("student_id"));
+                fragment.setArguments(bundle);
+
+                replaceFragment(fragment);
+                navigationView.setCheckedItem(R.id.nav_students);
+                return;
+            } else if (intent.getBooleanExtra("open_teacher_fragment", false)) {
+                setTeacherLoggedIn(true);
+
+                // Truyền dữ liệu giáo viên sang Fragment
+                TeacherFragment fragment = new TeacherFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name", intent.getStringExtra("teacher_name"));
+                bundle.putString("email", intent.getStringExtra("teacher_email"));
+                bundle.putString("id", intent.getStringExtra("teacher_id"));
+                fragment.setArguments(bundle);
+
+                replaceFragment(fragment);
+                navigationView.setCheckedItem(R.id.nav_teachers);
+                return;
+            }
         }
 
-        // Add a hamburger icon to open the drawer
-        toolbar.setNavigationIcon(android.R.drawable.ic_menu_view);
+        // Mặc định mở Dashboard nếu không có Intent
+        if (savedInstanceState == null) {
+            replaceFragment(new DashboardFragment());
+            navigationView.setCheckedItem(R.id.nav_dashboard);
+        }
+
+        // Mở navigation drawer
+        toolbar.setNavigationIcon(R.drawable.ic_menu_hamburger_scaled);
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        Fragment selectedFragment = null;
-
-        // Handle item selection in the navigation drawer
-        int id = item.getItemId(); // Dùng biến thay vì switch-case để tránh lỗi constant
+        int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-            selectedFragment = new DashboardFragment();
+            replaceFragment(new DashboardFragment());
         } else if (id == R.id.nav_students) {
-            selectedFragment = new StudentFragment();
+            if (isStudentLoggedIn()) {
+                replaceFragment(new StudentFragment()); // Có thể gán lại bundle nếu cần
+            } else {
+                Intent intent = new Intent(this, StudentAuthActivity.class);
+                startActivity(intent);
+                finish();
+            }
         } else if (id == R.id.nav_teachers) {
-            selectedFragment = new TeacherFragment();
+            if (isTeacherLoggedIn()) {
+                replaceFragment(new TeacherFragment()); // Có thể gán lại bundle nếu cần
+            } else {
+                Intent intent = new Intent(this, TeacherAuthActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        } else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
-
-        // Replace the fragment in the container
-        if (selectedFragment != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.main_container, selectedFragment)
-                    .commit();
-        }
-
-        // Close the drawer after item is selected
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, fragment)
+                .commit();
+    }
+
+    private boolean isStudentLoggedIn() {
+        return sharedPreferences.getBoolean(KEY_STUDENT_LOGGED_IN, false);
+    }
+
+    private boolean isTeacherLoggedIn() {
+        return sharedPreferences.getBoolean(KEY_TEACHER_LOGGED_IN, false);
+    }
+
+    public void setStudentLoggedIn(boolean loggedIn) {
+        sharedPreferences.edit().putBoolean(KEY_STUDENT_LOGGED_IN, loggedIn).apply();
+    }
+
+    public void setTeacherLoggedIn(boolean loggedIn) {
+        sharedPreferences.edit().putBoolean(KEY_TEACHER_LOGGED_IN, loggedIn).apply();
+        sharedPreferences.edit().putBoolean(KEY_TEACHER_LOGGED_IN, loggedIn).apply();
+    }
+
+    public void logoutStudent() {
+        sharedPreferences.edit().putBoolean(KEY_STUDENT_LOGGED_IN, false).apply();
+    }
+
+    public void logoutTeacher() {
+        sharedPreferences.edit().putBoolean(KEY_TEACHER_LOGGED_IN, false).apply();
     }
 }
