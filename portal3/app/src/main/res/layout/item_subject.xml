@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="?attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tv_subject_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên môn học"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_teacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giảng viên: ..." />
+
+    <TextView
+        android:id="@+id/tv_room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phòng: ..." />
+</LinearLayout>

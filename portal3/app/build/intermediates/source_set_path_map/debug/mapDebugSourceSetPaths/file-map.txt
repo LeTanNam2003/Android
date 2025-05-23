@@ -38,10 +38,10 @@ com.example.portal3.app-core-runtime-2.2.0-36 C:\Users\VNS\.gradle\caches\8.10.2
 com.example.portal3.app-core-viewtree-1.0.0-37 C:\Users\VNS\.gradle\caches\8.10.2\transforms\e49d41ffe2a076a5a544934d34a43506\transformed\core-viewtree-1.0.0\res
 com.example.portal3.app-constraintlayout-2.2.1-38 C:\Users\VNS\.gradle\caches\8.10.2\transforms\e6669c96727b374ab22c5c6706ade7ea\transformed\constraintlayout-2.2.1\res
 com.example.portal3.app-lifecycle-viewmodel-2.6.2-39 C:\Users\VNS\.gradle\caches\8.10.2\transforms\f9cdad11141bc14941bef4575874ec4c\transformed\lifecycle-viewmodel-2.6.2\res
-com.example.portal3.app-pngs-40 D:\HK2_2024-25_project\Android\portal3\app\build\generated\res\pngs\debug
-com.example.portal3.app-resValues-41 D:\HK2_2024-25_project\Android\portal3\app\build\generated\res\resValues\debug
-com.example.portal3.app-packageDebugResources-42 D:\HK2_2024-25_project\Android\portal3\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.portal3.app-packageDebugResources-43 D:\HK2_2024-25_project\Android\portal3\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.portal3.app-debug-44 D:\HK2_2024-25_project\Android\portal3\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.portal3.app-debug-45 D:\HK2_2024-25_project\Android\portal3\app\src\debug\res
-com.example.portal3.app-main-46 D:\HK2_2024-25_project\Android\portal3\app\src\main\res
+com.example.portal3.app-pngs-40 D:\HK2_2024-25_project\Android-nam\portal3\app\build\generated\res\pngs\debug
+com.example.portal3.app-resValues-41 D:\HK2_2024-25_project\Android-nam\portal3\app\build\generated\res\resValues\debug
+com.example.portal3.app-packageDebugResources-42 D:\HK2_2024-25_project\Android-nam\portal3\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.portal3.app-packageDebugResources-43 D:\HK2_2024-25_project\Android-nam\portal3\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.portal3.app-debug-44 D:\HK2_2024-25_project\Android-nam\portal3\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.portal3.app-debug-45 D:\HK2_2024-25_project\Android-nam\portal3\app\src\debug\res
+com.example.portal3.app-main-46 D:\HK2_2024-25_project\Android-nam\portal3\app\src\main\res

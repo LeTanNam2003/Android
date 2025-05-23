@@ -1,6 +1,6 @@
-﻿id,email,password,name,timetable_date,courses
-t001,vunamson.001@example.com,vunamson.001,VŨ NAM SƠN,"Thứ 6, 17/05/2025","IELTS Practice, Reading"
-t002,johndoe.002@example.com,johndoe.002,JOHN DOE,"Thứ 6, 17/05/2025","Listening, Reading, Pronunciation, Communication"
-t003,tranvana.003@example.com,tranvana_s.001,TRẦN VĂN A,"Thứ 6, 17/05/2025","Communication, Grammar, Listening"
-t004,havanb.004@example.com,havanb_s.002,HÀ VĂN B,"Thứ 6, 17/05/2025","Communication, Reading, Speaking"
-t005,tranvanc.005@example.com,tranvanc_admin,TRẦN VĂN C,"Thứ 6, 17/05/2025","Reading, Writing, Pronunciation"
+teacher_id,name,email,password,courses,teaching_days,off_days
+t001,Thầy Nguyễn Văn Khoa,gv.khoa@example.com,gv123,"IELTS Practice",48,12
+t002,Cô Trần Thị Mai,gv.mai@example.com,gv123,"Listening",42,18
+t003,Thầy Lê Văn Bình,gv.binh@example.com,gv123,"Communication",50,10
+t004,Cô Phạm Thị Hạnh,gv.hanh@example.com,gv123,"Speaking",46,14
+t005,Thầy Hoàng Văn Nam,gv.nam@example.com,gv123,"Listening",53,7

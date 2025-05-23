@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
     <!-- Main content -->
     <LinearLayout
@@ -16,15 +17,18 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorPrimary"
             app:titleTextColor="@android:color/white"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:elevation="4dp" />
 
-        <!-- Fragment container -->
+        <!-- Main content area with margin -->
         <FrameLayout
             android:id="@+id/main_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:background="@android:color/white" />
     </LinearLayout>
 
     <!-- Navigation drawer -->
@@ -33,6 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@android:color/white"
         app:menu="@menu/drawer_menu"
-    app:headerLayout="@layout/nav_header" />
+        app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/primary_color"
+        app:itemTextColor="@color/primary_text"
+        android:fitsSystemWindows="true" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

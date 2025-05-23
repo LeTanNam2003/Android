@@ -270,13 +270,13 @@
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"/>
 
-                <ListView
-                    android:id="@+id/lv_class"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_class"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:divider="@null"
-                    android:dividerHeight="8dp"/>
+                    android:scrollbars="vertical"/>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

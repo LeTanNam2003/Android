@@ -36,7 +36,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
     /**
      * Dependency provider for <b>activity</b> with <b>androidx.activity:activity</b> coordinates and
-     * with version <b>1.2.4</b>
+     * with version reference <b>activity</b>
      * <p>
      * This dependency was declared in catalog libs.versions.toml
      */
@@ -46,7 +46,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
     /**
      * Dependency provider for <b>appcompat</b> with <b>androidx.appcompat:appcompat</b> coordinates and
-     * with version <b>1.3.1</b>
+     * with version reference <b>appcompat</b>
      * <p>
      * This dependency was declared in catalog libs.versions.toml
      */
@@ -56,7 +56,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
     /**
      * Dependency provider for <b>constraintlayout</b> with <b>androidx.constraintlayout:constraintlayout</b> coordinates and
-     * with version <b>2.0.4</b>
+     * with version reference <b>constraintlayout</b>
      * <p>
      * This dependency was declared in catalog libs.versions.toml
      */
@@ -76,7 +76,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
     /**
      * Dependency provider for <b>material</b> with <b>com.google.android.material:material</b> coordinates and
-     * with version <b>1.4.0</b>
+     * with version reference <b>material</b>
      * <p>
      * This dependency was declared in catalog libs.versions.toml
      */
@@ -164,7 +164,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Dependency provider for <b>navigation</b> with <b>androidx.navigation:navigation-fragment</b> coordinates and
-         * with version <b>${versions.navigation}</b>
+         * with version reference <b>navigation</b>
          * <p>
          * This dependency was declared in catalog libs.versions.toml
          */
@@ -174,7 +174,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Dependency provider for <b>ui</b> with <b>androidx.navigation:navigation-ui</b> coordinates and
-         * with version <b>${versions.navigation}</b>
+         * with version reference <b>navigation</b>
          * <p>
          * This dependency was declared in catalog libs.versions.toml
          */
@@ -269,7 +269,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         public Provider<String> getMaterial() { return getVersion("material"); }
 
         /**
-         * Version alias <b>navigation</b> with value <b>2.4.0</b>
+         * Version alias <b>navigation</b> with value <b>2.8.9</b>
          * <p>
          * If the version is a rich version and cannot be represented as a
          * single version string, an empty string is returned.
